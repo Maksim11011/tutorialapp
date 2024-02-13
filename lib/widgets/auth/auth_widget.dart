@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../Theme/app_button_style.dart';
 
 class AuthWidget extends StatefulWidget {
@@ -33,7 +32,7 @@ class HeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = const TextStyle(
+    const textStyle = TextStyle(
       fontSize: 14,
       color: Colors.black,
     );
@@ -45,7 +44,7 @@ class HeaderWidget extends StatelessWidget {
           const SizedBox(height: 25),
           const _FormWidget(),
           const SizedBox(height: 25),
-          Text(
+          const Text(
             'Мотивация - это побуждение к действию, которое возникает в результате какого-то стимула. Она является ключевым фактором, который позволяет нам достигать целей и улучшать свою жизнь. Если вы думаете, что человеком с «горящими глазами» можно только родиться, то вы ошибаетесь.',
             style: textStyle,
           ),
@@ -56,7 +55,7 @@ class HeaderWidget extends StatelessWidget {
             child: const Text('Register'),
           ),
           const SizedBox(height: 25),
-          Text(
+          const Text(
             '«Чтобы достичь успеха, перестаньте гнаться за деньгами, гонитесь за мечтой». ...',
             style: textStyle,
           ),
@@ -73,7 +72,7 @@ class HeaderWidget extends StatelessWidget {
 }
 
 class _FormWidget extends StatefulWidget {
-  const _FormWidget({super.key});
+  const _FormWidget();
 
   @override
   State<_FormWidget> createState() => __FormWidgetState();
@@ -82,13 +81,14 @@ class _FormWidget extends StatefulWidget {
 class __FormWidgetState extends State<_FormWidget> {
   final _loginTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
-  String? errorText = null;
+  String? errorText;
   void _auth() {
     final login = _loginTextController.text;
     final password = _passwordTextController.text;
     if (login == 'admin' && password == 'admin') {
       errorText = null;
-      print('open app');
+
+      Navigator.of(context).pushReplacementNamed('/main_screen');
     } else {
       errorText = 'Неверный логин или пароль';
     }
@@ -101,12 +101,11 @@ class __FormWidgetState extends State<_FormWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = const TextStyle(
+    const textStyle = TextStyle(
       fontSize: 14,
-      //   color: Color(0xff212529),
     );
-    final color = const Color(0xff01b4e4);
-    final textFielDecoration = const InputDecoration(
+    const color = Color(0xff01b4e4);
+    const textFielDecoration = InputDecoration(
       border: OutlineInputBorder(),
       contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       isCollapsed: true,
@@ -125,7 +124,7 @@ class __FormWidgetState extends State<_FormWidget> {
           )
         ],
         const SizedBox(height: 20),
-        Text(
+        const Text(
           'Username',
           style: textStyle,
         ),
@@ -135,7 +134,7 @@ class __FormWidgetState extends State<_FormWidget> {
           decoration: textFielDecoration,
         ),
         const SizedBox(height: 20),
-        Text(
+        const Text(
           'Password',
           style: textStyle,
         ),

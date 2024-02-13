@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'widgets/auth/auth_widget.dart';
+import 'widgets/main_screen/main_screen_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,11 @@ class MyApp extends StatelessWidget {
           backgroundColor: Color.fromRGBO(3, 33, 85, 1),
         ),
       ),
-      home: AuthWidget(),
+      routes: {
+        '/auth': (context) => const AuthWidget(),
+        '/main_screen': (context) => const MainScreenWidget(),
+      },
+      initialRoute: '/auth',
     );
   }
 }
