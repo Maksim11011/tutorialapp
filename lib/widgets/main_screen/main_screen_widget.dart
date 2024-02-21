@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tutorialapp/widgets/friends_list/friens_list_widget.dart';
 
 class MainScreenWidget extends StatefulWidget {
   const MainScreenWidget({super.key});
@@ -13,9 +14,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
     Text(
       'Мой профиль',
     ),
-    Text(
-      'Друзья',
-    ),
+    FriendsListWidget(),
     Text(
       'Группы',
     ),

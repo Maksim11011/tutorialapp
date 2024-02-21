@@ -95,9 +95,7 @@ class __FormWidgetState extends State<_FormWidget> {
     setState(() {});
   }
 
-  void _resetPassword() {
-    print('Reset password');
-  }
+  void _resetPassword() {}
 
   @override
   Widget build(BuildContext context) {
