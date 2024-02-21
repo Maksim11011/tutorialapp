@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tutorialapp/widgets/friends_list/friens_list_widget.dart';
+import 'package:tutorialapp/widgets/friends_list/friends_list_widget.dart';
 
 class MainScreenWidget extends StatefulWidget {
   const MainScreenWidget({super.key});
@@ -10,15 +10,6 @@ class MainScreenWidget extends StatefulWidget {
 
 class _MainScreenWidgetState extends State<MainScreenWidget> {
   int _selectedTab = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Мой профиль',
-    ),
-    FriendsListWidget(),
-    Text(
-      'Группы',
-    ),
-  ];
 
   void onSelectTab(int index) {
     if (_selectedTab == index) return;
@@ -36,8 +27,17 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      body: Center(
-        child: _widgetOptions[_selectedTab],
+      body: IndexedStack(
+        index: _selectedTab,
+        children: const [
+          Text(
+            'Мой профиль',
+          ),
+          FriendsListWidget(),
+          Text(
+            'Группы',
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedTab,
