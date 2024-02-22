@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:tutorialapp/resources/resources.dart';
 
 class Friend {
+  final int id;
   final String imageName;
   final String friendName;
   final String cityName;
+  final String description;
 
   Friend({
+    required this.id,
     required this.imageName,
     required this.friendName,
     required this.cityName,
+    required this.description,
   });
 }
 
@@ -23,54 +27,74 @@ class FriendsListWidget extends StatefulWidget {
 class _FriendsListWidgetState extends State<FriendsListWidget> {
   final _friends = [
     Friend(
+      id: 1,
       imageName: AppImages.profile,
       friendName: 'Жанна Ивансонова',
       cityName: 'Санкт-Петербург',
+      description: 'Какой то статус',
     ),
     Friend(
+      id: 2,
       imageName: AppImages.profile,
       friendName: 'Евгений Песня',
       cityName: 'Санкт-Петербург',
+      description: 'Какой то статус',
     ),
     Friend(
+      id: 3,
       imageName: AppImages.profile,
       friendName: 'Виктор Толмут',
       cityName: 'Санкт-Петербург',
+      description: 'Какой то статус',
     ),
     Friend(
+      id: 4,
       imageName: AppImages.profile,
       friendName: 'Иван Ураган',
       cityName: 'Санкт-Петербург',
+      description: 'Какой то статус',
     ),
     Friend(
+      id: 5,
       imageName: AppImages.profile,
       friendName: 'Олежа Мазов',
       cityName: 'Санкт-Петербург',
+      description: 'Какой то статус',
     ),
     Friend(
+      id: 6,
       imageName: AppImages.profile,
       friendName: 'Максим Небылица',
       cityName: 'Санкт-Петербург',
+      description: 'Какой то статус',
     ),
     Friend(
+      id: 7,
       imageName: AppImages.profile,
-      friendName: 'Анастасия Изюм',
+      friendName: 'Екатерина Изюм',
       cityName: 'Санкт-Петербург',
+      description: 'Какой то статус',
     ),
     Friend(
+      id: 8,
       imageName: AppImages.profile,
-      friendName: 'Александ Ольга',
+      friendName: 'Александр Ольга',
       cityName: 'Санкт-Петербург',
+      description: 'Какой то статус',
     ),
     Friend(
+      id: 9,
       imageName: AppImages.profile,
       friendName: 'Сергей Сережа',
       cityName: 'Санкт-Петербург',
+      description: 'Какой то статус',
     ),
     Friend(
+      id: 10,
       imageName: AppImages.profile,
       friendName: 'Латышский Стрелок',
       cityName: 'Санкт-Петербург',
+      description: 'Какой то статус',
     ),
   ];
 
@@ -95,6 +119,14 @@ class _FriendsListWidgetState extends State<FriendsListWidget> {
     super.initState();
     _filteredFriends = _friends;
     _searchController.addListener(_searchFriends);
+  }
+
+  void _onFriendsTap(int index) {
+    final id = _friends[index].id;
+    Navigator.of(context).pushNamed(
+      '/main_screen/Friends_Details',
+      arguments: id,
+    );
   }
 
   @override
@@ -147,6 +179,13 @@ class _FriendsListWidgetState extends State<FriendsListWidget> {
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
+                              const SizedBox(height: 20),
+                              Text(
+                                friend.description,
+                                style: const TextStyle(color: Colors.green),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ],
                           ),
                         )
@@ -157,7 +196,7 @@ class _FriendsListWidgetState extends State<FriendsListWidget> {
                     color: Colors.transparent,
                     child: InkWell(
                       borderRadius: BorderRadius.circular(12),
-                      onTap: () {},
+                      onTap: () => _onFriendsTap(index),
                     ),
                   )
                 ],
