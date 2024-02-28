@@ -29,7 +29,7 @@ class _FriendsListWidgetState extends State<FriendsListWidget> {
     Friend(
       id: 1,
       imageName: AppImages.profile,
-      friendName: 'Жанна Ивансонова',
+      friendName: 'Иван Иванов',
       cityName: 'Санкт-Петербург',
       description: 'Какой то статус',
     ),

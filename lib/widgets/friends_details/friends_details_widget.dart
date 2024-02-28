@@ -23,10 +23,13 @@ class _FriendsDetailsWidgetState extends State<FriendsDetailsWidget> {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      body: ListView(
-        children: const [
-          FriendsDetailsMainInfoWidget(),
-        ],
+      body: ColoredBox(
+        color: const Color.fromRGBO(24, 23, 27, 1.0),
+        child: ListView(
+          children: const [
+            FriendsDetailsMainInfoWidget(),
+          ],
+        ),
       ),
     );
   }
